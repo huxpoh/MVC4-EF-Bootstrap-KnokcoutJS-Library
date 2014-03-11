@@ -70,6 +70,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -239,7 +240,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\BasicAuthenticationMessageHandler.cs" />
+    <Compile Include="Helpers\ClaimsTransformer.cs" />
     <Compile Include="Membership\Crypto.cs" />
     <Compile Include="Membership\CustomMembershipProvider.cs" />
     <Compile Include="Membership\CustomRoleProvider.cs" />

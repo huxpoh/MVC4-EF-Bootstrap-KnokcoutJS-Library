@@ -12,7 +12,7 @@ using Library.WebPr.ViewModels;
 
 namespace WebApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class BookController : ApiController
     {
         private readonly IRepository<Book> _bookRepository;

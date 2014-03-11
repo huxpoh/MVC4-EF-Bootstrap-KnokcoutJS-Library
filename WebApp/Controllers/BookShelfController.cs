@@ -12,7 +12,7 @@ using Library.WebPr.ViewModels;
 
 namespace WebApp.Controllers
 {
-    //[Authorize(Roles = "librarian")]
+    [Authorize(Roles = "librarian")]
     public class ShelfController : ApiController
     {
         private readonly IRepository<BookShelf> _shelfRepository;

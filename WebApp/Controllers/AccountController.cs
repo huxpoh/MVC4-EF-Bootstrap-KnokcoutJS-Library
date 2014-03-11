@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebApp.ViewModels;
@@ -11,9 +12,12 @@ namespace WebApp.Controllers
     {
         public ActionResult Login()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var role = Roles.GetRolesForUser(HttpContext.User.Identity.Name).First();
+            }
             return View();
         }
-
 
         [AllowAnonymous]
         [HttpPost]
@@ -39,7 +43,7 @@ namespace WebApp.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
 
 
@@ -47,27 +51,6 @@ namespace WebApp.Controllers
         {
             return View();
         }
-
-        //[HttpPost]
-        //public ActionResult Register(RegisterModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        MembershipCreateStatus createStatus;
-        //        System.Web.Security.Membership.CreateUser(model.UserName, model.Password, model.Email, model.SecretQuestion, model.SecretAnswer, true, null, out createStatus);
-
-        //        if (createStatus == MembershipCreateStatus.Success)
-        //        {
-        //            FormsAuthentication.SetAuthCookie(model.UserName, false);
-        //            var role = Roles.GetRolesForUser(model.UserName).First();
-
-        //            return RedirectToAction("Index", "Main");
-        //        }
-        //        ModelState.AddModelError("", ErrorCodeToString(createStatus));
-        //    }
-        //    return View(model);
-        //}
-
 
         [HttpPost]
         [AllowAnonymous]
