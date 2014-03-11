@@ -1,7 +1,0 @@
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\bin\Debug\Library.DataContracts.dll
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\bin\Debug\Library.DataContracts.pdb
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\bin\Debug\Library.Model.dll
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\bin\Debug\Library.Model.pdb
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\obj\Debug\Library.DataContracts.csprojResolveAssemblyReference.cache
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\obj\Debug\Library.DataContracts.dll
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.DataContracts\obj\Debug\Library.DataContracts.pdb

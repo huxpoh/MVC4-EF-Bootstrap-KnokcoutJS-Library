@@ -1,5 +1,0 @@
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.ServiceContracts\bin\Debug\Library.ServiceContracts.dll
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.ServiceContracts\bin\Debug\Library.ServiceContracts.pdb
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.ServiceContracts\obj\Debug\Library.ServiceContracts.csprojResolveAssemblyReference.cache
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.ServiceContracts\obj\Debug\Library.ServiceContracts.dll
-c:\users\alex\documents\visual studio 2012\Projects\Library\Library.ServiceContracts\obj\Debug\Library.ServiceContracts.pdb
