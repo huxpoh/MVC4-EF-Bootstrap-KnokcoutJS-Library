@@ -1,0 +1,5 @@
+c:\users\alex\documents\visual studio 2012\Projects\Library\Library.Model\bin\Debug\Library.Model.dll
+c:\users\alex\documents\visual studio 2012\Projects\Library\Library.Model\bin\Debug\Library.Model.pdb
+c:\users\alex\documents\visual studio 2012\Projects\Library\Library.Model\obj\Debug\Library.Model.csprojResolveAssemblyReference.cache
+c:\users\alex\documents\visual studio 2012\Projects\Library\Library.Model\obj\Debug\Library.Model.dll
+c:\users\alex\documents\visual studio 2012\Projects\Library\Library.Model\obj\Debug\Library.Model.pdb
