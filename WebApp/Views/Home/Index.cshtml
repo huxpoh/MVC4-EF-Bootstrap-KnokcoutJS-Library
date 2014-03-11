@@ -1,0 +1,20 @@
+﻿@model WebApp.ViewModels.LoginModel
+@{
+    ViewBag.Title = "My Todo List";
+}
+    <div class="todoList" id="loginPanel">
+        <section id="localLoginPanel">
+            <h2>Log in</h2>
+            @Html.Partial("_Login")
+        </section>
+        <section id="socialLoginPanel">
+            <h2>Log in using another service</h2>
+            @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+        <p>First time here? <a id="showRegister" class="btn btn-xs btn-info">Sign up</a></p>
+    </div>
+    <div class="todoList" id="registerPanel" style="display: none">
+        <h2>Sign up</h2>
+        @Html.Partial("_Register")
+        <p>Already signed up? <a id="showLogin" class="btn btn-xs btn-info">Log in</a></p>
+    </div>

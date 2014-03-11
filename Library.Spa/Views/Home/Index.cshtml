@@ -1,0 +1,37 @@
+﻿@model Library.Spa.ViewModels.LoginModel
+@{
+    ViewBag.Title = "My Todo List";
+}
+
+@section scripts
+{
+     @Scripts.Render("~/bundles/reader")
+}
+<header>
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<div id="main-content">
+   <table class="table table-bordered table-condensed table-striped">
+    <thead>
+        <tr><th>Guid</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: people">
+        <tr>
+            <td data-bind="text: guid"></td>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: Author"></td>
+            <td data-bind="text: date"></td>
+         <td>
+            <a href="api/book"></a>
+        </td>
+        </tr>
+
+    </tbody>
+</table>
+</div>
+

@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reader</h2>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section menu
+{
+    <li><a href="#MyBooks" onclick="ShowModule('MyBooks')">My Books</a></li>
+    <li><a href="#Library" onclick="ShowModule('Library')">Library</a></li>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/librarian")
+    <script type="text/javascript">
+        function ShowModule(id) {
+            $('.wrapper').hide();
+            $('#' + id).fadeIn();
+        }
+    </script>
+}
+
+<div id="MyBooks" class="wrapper">
+    <h2>Librarian Module</h2>
+    <button class="btn btn-default btn-info" data-toggle="modal" data-target="#CreateBookModel">Add new Book</button>
+    <hr />
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Guid</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>BookShelf</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: bookViewModel.books">
+            <tr>
+                <td data-bind="text: Id"></td>
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Author"></td>
+                <td data-bind="text: PublishDate"></td>
+                <td data-bind="text: BookShelfId"></td>
+                <td>
+                    <button data-bind="click: $parent.readerViewModel.ReturnBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Return book</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="Library" class="wrapper">
+    <h2>Librarian Module</h2>
+    <button class="btn btn-default btn-info" data-toggle="modal" data-target="#CreateBookModel">Add new Book</button>
+    <hr />
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Guid</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>BookShelf</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: bookViewModel.books">
+            <tr>
+                <td data-bind="text: Id"></td>
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Author"></td>
+                <td data-bind="text: PublishDate"></td>
+                <td data-bind="text: BookShelfId"></td>
+                <td>
+                    <button data-bind="click: $parent.readerViewModel.TakeBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Take book</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
