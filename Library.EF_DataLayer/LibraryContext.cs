@@ -25,5 +25,7 @@ namespace Library.EF_DataLayer
         public DbSet<Storage> Storages { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
 
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

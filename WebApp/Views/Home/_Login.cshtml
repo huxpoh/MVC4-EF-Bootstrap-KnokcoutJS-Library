@@ -1,6 +1,6 @@
-﻿@model WebApp.ViewModels.LoginModel
+﻿@model WebApp.ViewModels.LogOnModel
 
-@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
 {
     @Html.AntiForgeryToken()
 

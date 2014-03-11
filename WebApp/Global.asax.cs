@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Security.Claims;
+using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -7,6 +9,7 @@ using System.Web.Routing;
 using Library.EF_DataLayer;
 using Library.WebPr.App_Start;
 using WebApp.App_Start;
+using WebApp.Helpers;
 
 namespace WebApp
 {
@@ -25,6 +28,19 @@ namespace WebApp
 
             Database.SetInitializer(new EfInitializer());
         }
+
+        //protected void Application_PostAuthenticateRequest()
+        //{
+        //    if (ClaimsPrincipal.Current.Identity.IsAuthenticated)
+        //    {
+        //        var transformer = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager;
+        //        var newPrincipal = transformer.Authenticate(string.Empty, ClaimsPrincipal.Current);
+
+        //        Thread.CurrentPrincipal = newPrincipal;
+        //        HttpContext.Current.User = newPrincipal;
+        //    }
+        //}
+
 
         protected void Application_BeginRequest()
         {

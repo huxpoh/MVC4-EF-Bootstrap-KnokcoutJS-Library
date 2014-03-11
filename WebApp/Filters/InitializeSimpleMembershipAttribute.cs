@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
 using Library.EF_DataLayer;
-using WebApp.ViewModels;
+
 using WebMatrix.WebData;
 
 namespace WebApp.Filters

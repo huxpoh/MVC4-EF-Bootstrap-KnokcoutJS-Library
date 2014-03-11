@@ -2,8 +2,7 @@
 
 @using (Html.BeginForm("JsonRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
 {
-    @Html.AntiForgeryToken()
-
+ @Html.AntiForgeryToken()
     <fieldset>
         <legend>Registration Form</legend>
         <ol>
@@ -20,7 +19,11 @@
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
             <li>
-                <input type="submit" value="Sign up" class="btn btn-sm btn-success"/>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+            <li>
+                <input type="submit" value="Sign up" class="btn btn-sm btn-success" />
             </li>
         </ol>
         @Html.ValidationSummary()
