@@ -42,6 +42,15 @@ namespace WebApp
                 "~/Scripts/app/Librarian/storageViewModel.js",
                 "~/Scripts/app/Librarian/LibrarianViewModel.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/reader").Include(
+                "~/Scripts/app/library.context.js",
+                "~/Scripts/app/book.js",
+                "~/Scripts/app/storage.js",
+                "~/Scripts/app/shelf.js",
+                "~/Scripts/app/Reader/readerBookViewModel.js",
+                "~/Scripts/app/Reader/libraryBookViewModel.js",
+                "~/Scripts/app/Reader/ReaderViewModel.js"));
+
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                 "~/Content/bootstrap.css",

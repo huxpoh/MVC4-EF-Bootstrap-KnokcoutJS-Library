@@ -2,8 +2,9 @@
 using Library.Model.Models;
 using Library.Web.ViewModels;
 using Library.WebPr.ViewModels;
+using WebApp.ViewModels;
 
-namespace Library.WebPr.App_Start
+namespace WebApp
 {
     public static class AutoMapperConfig
     {
@@ -11,7 +12,8 @@ namespace Library.WebPr.App_Start
         {
             Mapper.CreateMap<Book, BookViewModel>()
                 .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate.ToString("f")))
-                .ForMember(dest => dest.BookShelfId, opt => opt.MapFrom(src => src.BookShelf.Id));
+                .ForMember(dest => dest.BookShelfId, opt => opt.MapFrom(src => src.BookShelf.Id))
+                 .ForMember(dest => dest.ReaderId, opt => opt.MapFrom(src => src.Reader.Id));
 
             Mapper.CreateMap<BookViewModel,Book>()
                 .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate));

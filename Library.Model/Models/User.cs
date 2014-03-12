@@ -7,11 +7,8 @@ using System.ComponentModel.DataAnnotations;
 namespace Library.Model.Models
 {
 
-    public class User
+    public class User :BaseEntity
     {
-        [Key]
-        public Guid UserId { get; set; }
-
         [Required]
         public String Username { get; set; }
 
@@ -40,5 +37,8 @@ namespace Library.Model.Models
         public DateTime? PasswordVerificationTokenExpirationDate { get; set; }
 
         public ICollection<Role> Roles { get; set; }
+
+
+        public virtual List<Book> Books { set; get; }
     }
 }

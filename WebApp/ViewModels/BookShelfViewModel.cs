@@ -1,5 +1,6 @@
 ﻿using System;
 using Library.Web.ViewModels;
+using WebApp.ViewModels;
 
 namespace Library.WebPr.ViewModels
 {

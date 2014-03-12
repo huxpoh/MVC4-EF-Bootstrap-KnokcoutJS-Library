@@ -9,7 +9,7 @@ namespace Library.EF_DataLayer
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>().HasRequired(current => current.BookShelf)
+            modelBuilder.Entity<Book>().HasOptional(current => current.BookShelf)
                 .WithMany(c => c.Books)
                 .WillCascadeOnDelete(true);
 
@@ -17,11 +17,14 @@ namespace Library.EF_DataLayer
                 .WithMany(c => c.BookShelves)
                 .WillCascadeOnDelete(true);
 
+            modelBuilder.Entity<Book>().HasOptional(current => current.Reader)
+                .WithMany(c => c.Books)
+                .WillCascadeOnDelete(false);
+
         }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<BookShelf> BookShelfs { get; set; }
-        public DbSet<Reader> Readers { get; set; }
         public DbSet<Storage> Storages { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
 

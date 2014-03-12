@@ -9,11 +9,12 @@ using AutoMapper;
 using Contract.Contracts;
 using Library.Model.Models;
 using Library.WebPr.ViewModels;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
-    [Authorize]
-    public class BookController : ApiController
+    [Authorize(Roles = "librarian")]
+    public class BookController : BaseApiController
     {
         private readonly IRepository<Book> _bookRepository;
         private readonly IRepository<BookShelf> _bookShelfRepository;
@@ -27,7 +28,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public HttpResponseMessage GetAllBooks()
         {
-            var items = _bookRepository.GetAll().Include(x=>x.BookShelf).ToList();
+            var items = _bookRepository.GetAll().Include(x => x.BookShelf).Where(x=>x.BookShelf!=null).ToList();
             items.Reverse();
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<Book>, IEnumerable<BookViewModel>>(items));
         }
@@ -36,11 +37,12 @@ namespace WebApp.Controllers
         public HttpResponseMessage AddBook(BookViewModel viewModel)
         {
             var book = Mapper.Map<BookViewModel, Book>(viewModel);
-            
+
             book.PublishDate = DateTime.UtcNow;
             book.BookShelf = _bookShelfRepository.GetById(viewModel.BookShelfId);
+            book.Reader = null;
             _bookRepository.Insert(book);
-            _bookRepository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Book, BookViewModel>(book));
         }
@@ -49,22 +51,22 @@ namespace WebApp.Controllers
         public HttpResponseMessage UpdateBook(BookViewModel viewModel)
         {
             var book = _bookRepository.GetById(viewModel.Id);
-            Mapper.Map(viewModel,book);
+            Mapper.Map(viewModel, book);
 
             book.BookShelf = _bookShelfRepository.GetById(viewModel.BookShelfId);
             _bookRepository.Update(book);
-            _bookShelfRepository.SaveChanges();
+            SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK,"ok");
+            return Request.CreateResponse(HttpStatusCode.OK, "ok");
         }
 
         [HttpDelete]
         public HttpResponseMessage DeleteBook(string guid)
         {
             _bookRepository.Delete(guid);
-            _bookRepository.SaveChanges();
+            SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK,"ok");
+            return Request.CreateResponse(HttpStatusCode.OK, "ok");
         }
     }
 }

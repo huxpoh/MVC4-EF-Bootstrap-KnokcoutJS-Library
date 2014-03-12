@@ -11,7 +11,7 @@ namespace Library.EF_DataLayer
         {
             var newUser = new User
             {
-                UserId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Username = "librarian",
                 Password = Crypto.HashPassword("1234567"),
                 IsApproved = true,
@@ -28,8 +28,8 @@ namespace Library.EF_DataLayer
 
             var newAdmin = new User
             {
-                UserId = Guid.NewGuid(),
-                Username = "admin",
+                Id = Guid.NewGuid(),
+                Username = "reader",
                 Password = Crypto.HashPassword("1234567"),
                 IsApproved = true,
                 Email = "huxpoh2@gmail.com",
@@ -69,6 +69,7 @@ namespace Library.EF_DataLayer
             context.Roles.Add(role2);
             context.Roles.Add(role3);
 
+            role1.Users.Add(newAdmin);
             role3.Users.Add(newUser);
             context.SaveChanges();
 

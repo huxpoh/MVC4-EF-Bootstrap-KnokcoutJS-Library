@@ -11,7 +11,8 @@ namespace Library.Model.Models
 
         public DateTime PublishDate { set; get; }
 
-       // public Guid BookShelfId { set; get; }
         public BookShelf BookShelf { set; get; }
+
+        public User Reader { set; get; }
     }
 }

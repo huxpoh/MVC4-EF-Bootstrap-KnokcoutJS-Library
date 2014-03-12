@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace Library.WebPr.ViewModels
+namespace WebApp.ViewModels
 {
-
-
     public class BookViewModel : BaseViewModel
     {
         public String Name { set; get; }
@@ -13,6 +11,8 @@ namespace Library.WebPr.ViewModels
         public string PublishDate { set; get; }
 
         public Guid BookShelfId { set; get; }
+
+        public Guid ReaderId { set; get; }
     }
 
     public class BaseViewModel

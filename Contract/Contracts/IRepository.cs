@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Library.Model.Models;
 
@@ -21,10 +20,6 @@ namespace Contract.Contracts
 
         void Update(TEntity entityToUpdate);
 
-        void SaveChanges();
-
         void Detach(TEntity entity);
-
-       // void Dispose();
     }
 }

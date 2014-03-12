@@ -3,8 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Reader</h2>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,7 +14,7 @@
 }
 
 @section scripts{
-    @Scripts.Render("~/bundles/librarian")
+    @Scripts.Render("~/bundles/reader")
     <script type="text/javascript">
         function ShowModule(id) {
             $('.wrapper').hide();
@@ -25,10 +23,8 @@
     </script>
 }
 
-<h1>Reader</h1>
-@*<div id="MyBooks" class="wrapper">
-    <h2>Librarian Module</h2>
-    <button class="btn btn-default btn-info" data-toggle="modal" data-target="#CreateBookModel">Add new Book</button>
+<div id="MyBooks" class="wrapper">
+    <h2>My Books</h2>
     <hr />
     <table class="table table-bordered table-condensed table-striped">
         <thead>
@@ -37,28 +33,27 @@
                 <th>Name</th>
                 <th>Author</th>
                 <th>Date</th>
-                <th>BookShelf</th>
+                <th>Reader</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody data-bind="foreach: bookViewModel.books">
+        <tbody data-bind="foreach: readerBookViewModel.books">
             <tr>
                 <td data-bind="text: Id"></td>
                 <td data-bind="text: Name"></td>
                 <td data-bind="text: Author"></td>
                 <td data-bind="text: PublishDate"></td>
-                <td data-bind="text: BookShelfId"></td>
+                <td data-bind="text: ReaderId"></td>
                 <td>
-                    <button data-bind="click: $parent.readerViewModel.ReturnBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Return book</button>
+                    <button data-bind="click: $parent.readerBookViewModel.ReturnBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Return book</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<div id="Library" class="wrapper">
-    <h2>Librarian Module</h2>
-    <button class="btn btn-default btn-info" data-toggle="modal" data-target="#CreateBookModel">Add new Book</button>
+<div id="Library" class="wrapper" style="display: none">
+    <h2>Librarian Books</h2>
     <hr />
     <table class="table table-bordered table-condensed table-striped">
         <thead>
@@ -67,11 +62,11 @@
                 <th>Name</th>
                 <th>Author</th>
                 <th>Date</th>
-                <th>BookShelf</th>
+                <th>Book Shelf Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody data-bind="foreach: bookViewModel.books">
+        <tbody data-bind="foreach: libraryBookViewModel.books">
             <tr>
                 <td data-bind="text: Id"></td>
                 <td data-bind="text: Name"></td>
@@ -79,9 +74,9 @@
                 <td data-bind="text: PublishDate"></td>
                 <td data-bind="text: BookShelfId"></td>
                 <td>
-                    <button data-bind="click: $parent.readerViewModel.TakeBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Take book</button>
+                    <button data-bind="click: $parent.libraryBookViewModel.TakeBook, value: Id" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#EditBookModel">Take book</button>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>*@
+</div>

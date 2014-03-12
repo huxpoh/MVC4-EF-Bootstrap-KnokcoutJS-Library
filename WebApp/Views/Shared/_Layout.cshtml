@@ -11,19 +11,22 @@
     @Styles.Render("~/Content/bootstrapcss")
 </head>
 <body>
-    
+
 
     <div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                     @Html.Partial("_UserSettings")
+
                     @RenderSection("menu", false)
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_UserSettings")
                 </ul>
             </div>
         </div>
     </div>
-   
+
 
     <div class="container" style="margin-top: 60px;">
         @RenderBody()

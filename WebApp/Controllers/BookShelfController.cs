@@ -13,7 +13,7 @@ using Library.WebPr.ViewModels;
 namespace WebApp.Controllers
 {
     [Authorize(Roles = "librarian")]
-    public class ShelfController : ApiController
+    public class ShelfController : BaseApiController
     {
         private readonly IRepository<BookShelf> _shelfRepository;
         private readonly IRepository<Storage> _storRepository;
@@ -40,7 +40,7 @@ namespace WebApp.Controllers
 
             bookShelf.Storage = _storRepository.GetById(viewModel.StorageId);
             _shelfRepository.Insert(bookShelf);
-            _shelfRepository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK,"ok");
         }
@@ -52,7 +52,7 @@ namespace WebApp.Controllers
             Mapper.Map(viewModel, bookShelf);
             bookShelf.Storage = _storRepository.GetById(viewModel.StorageId);
             _shelfRepository.Update(bookShelf);
-            _shelfRepository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK,"ok");
         }
@@ -62,10 +62,10 @@ namespace WebApp.Controllers
         {
             var bookSlf = _shelfRepository.GetById(Guid.Parse(guid));
             bookSlf.Storage = null;
-            _shelfRepository.SaveChanges();
+            SaveChanges();
 
             _shelfRepository.Delete(bookSlf);
-            _shelfRepository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK,"ok");
         }

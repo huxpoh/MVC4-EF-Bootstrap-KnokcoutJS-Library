@@ -2,7 +2,7 @@
 
 namespace WebApp.Controllers
 {
-    //[Authorize(Roles="reader")]
+    [Authorize(Roles="reader")]
     public class ReaderController : Controller
     {
         public ActionResult Index()

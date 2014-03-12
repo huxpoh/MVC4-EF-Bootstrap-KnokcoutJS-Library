@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Contract.Contracts;
 using Library.Model.Models;
 
@@ -87,11 +85,6 @@ namespace Library.EF_DataLayer.Repositories
                     entry.State = EntityState.Modified;
                 }
             }
-        }
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
         }
     }
 }

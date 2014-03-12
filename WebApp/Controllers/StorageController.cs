@@ -9,8 +9,8 @@ using Library.Web.ViewModels;
 
 namespace WebApp.Controllers
 {
-    //[Authorize(Roles = "librarian")]
-    public class StorageController : ApiController
+    [Authorize(Roles = "librarian")]
+    public class StorageController : BaseApiController
     {
         private readonly IRepository<Storage> _repository;
 
@@ -31,7 +31,7 @@ namespace WebApp.Controllers
         public HttpResponseMessage DeleteStorage(string guid)
         {
             _repository.Delete(guid);
-            _repository.SaveChanges();
+           SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK, guid);
         }
@@ -42,7 +42,7 @@ namespace WebApp.Controllers
             var sotrage = Mapper.Map<StorageViewModel, Storage>(viewModel);
 
             _repository.Insert(sotrage);
-            _repository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Storage, StorageViewModel>(sotrage));
         }
@@ -53,7 +53,7 @@ namespace WebApp.Controllers
             var storage = Mapper.Map<StorageViewModel, Storage>(viewModel);
 
             _repository.Update(storage);
-            _repository.SaveChanges();
+            SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Storage, StorageViewModel>(storage));
         }

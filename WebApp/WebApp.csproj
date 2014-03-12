@@ -233,7 +233,6 @@
     <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\ReaderController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
-    <Compile Include="Controllers\TodoListController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Filters\ValidateHttpAntiForgeryTokenAttribute.cs" />
@@ -339,7 +338,9 @@
     <Content Include="Scripts\App\Librarian\shelfViewModel.js" />
     <Content Include="Scripts\App\Librarian\storageViewModel.js" />
     <Content Include="Scripts\App\library.context.js" />
-    <Content Include="Scripts\App\Reader\bookViewModel.js" />
+    <Content Include="Scripts\App\Reader\readerBookViewModel.js" />
+    <Content Include="Scripts\App\Reader\libraryBookViewModel.js" />
+    <Content Include="Scripts\App\Reader\ReaderViewModel.js" />
     <Content Include="Scripts\App\Shelf.js" />
     <Content Include="Scripts\App\Storage.js" />
     <Content Include="Scripts\bootstrap.js" />

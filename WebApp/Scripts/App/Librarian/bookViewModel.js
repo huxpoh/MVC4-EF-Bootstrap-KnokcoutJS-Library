@@ -47,7 +47,9 @@
                     "Author": self.selectedBook.Author(),
                     "PublishDate": self.selectedBook.PublishedDate(),
                     "BookShelfId": $("#bookDropDown1>option:selected").attr('ShelfId')
-                }, "json", function () { self.PopulatBooks(); });
+                }, "json", function() {
+                self.PopulatBooks();
+            });
         };
 
         self.CreateBook = function (data, event) {
@@ -56,7 +58,9 @@
                     "Name": self.selectedBook.Name(),
                     "Author": self.selectedBook.Author(),
                     "BookShelfId": $("#bookDropDown2>option:selected").attr('ShelfId')
-                }, "json", function (result) { self.books.push(result); });
+                }, "json", function(result) {
+                self.books.push(result);
+            });
         };
 
         self.SetCurrentBook = function (id, name, author, publishDate) {
